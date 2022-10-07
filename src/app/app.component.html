@@ -2,8 +2,9 @@
     <h1>Sortowanie bąbelkowe</h1>
     <div
         class="sorting-container"
-        [style]="'--time:' + time + 'ms'"
+        [style]="'--time:' + time + 'ms;--count:' + count"
         [class.all-finished]="allFinished"
+        [class.has-animations]="shouldHaveAnimations"
     >
         <div
             class="sorting-column-container"
@@ -23,11 +24,11 @@
     </div>
     <div class="button-container">
         <button
-            (click)="fillSortingValues()"
+            (click)="resetSortingValues()"
             [disabled]="isSorting"
         >Wylosuj</button>
         <button
-            (click)="startSorting()"
+            (click)="toggleSorting()"
             [class.is-paused]="hasStarted && !isSorting"
             [class.ended]="allFinished"
             [disabled]="allFinished"

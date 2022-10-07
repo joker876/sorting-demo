@@ -89,7 +89,7 @@ h1 {
     height: 100%;
     background: #0D47A1;
     border: 1px solid white;
-    transition: background-color 0.15s ease;
+    // transition: background-color 0.15s ease;
 
     &:first-child {
         margin-left: 0;
@@ -98,26 +98,37 @@ h1 {
     &.selected {
         background: #E65100;
     }
-    &.good {
-        color: #33691E;
-        animation: flash calc(var(--time) + 10ms) ease-out;
-    }
-    &.bad {
-        color: #C62828;
-        animation: flash calc(var(--time) + 10ms) ease-out;
-    }
-    &.switch-to-left {
-        animation: switch-to-left calc(var(--time) + 10ms) ease;
-    }
-    &.switch-to-right {
-        animation: switch-to-right calc(var(--time) + 10ms) ease;
-    }
     &.finished {
         background: #33691E;
     }
 }
+.has-animations .sorting-column {
+    &.good {
+        color: #33691E;
+        animation: flash calc(var(--time) * 1.02) ease-out;
+    }
+    &.bad {
+        color: #C62828;
+        animation: flash calc(var(--time) * 1.02) ease-out;
+    }
+    &.switch-to-left {
+        animation: switch-to-left calc(var(--time) * 1.02) ease;
+    }
+    &.switch-to-right {
+        animation: switch-to-right calc(var(--time) * 1.02) ease;
+    }
+}
 .sorting-container.all-finished .sorting-column {
-    animation: shine 0.25s ease-in-out calc(var(--i) * 0.075s + 0.75s);
+    $drtn: max(0.5s / var(--count), 0.05s);
+    animation:
+        shine
+        $drtn
+        ease-in-out
+        calc(
+            var(--i)
+            * max($drtn / 4, 0.0125s)
+            + 0.5s
+        );
 }
 
 // @keyframes popup {
