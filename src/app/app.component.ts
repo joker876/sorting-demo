@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     interval: any = null;
     gen!: Generator<undefined, void, unknown >;
 
-    readonly time: number = 1;
+    readonly time: number = 400;
     readonly count: number = 100;
     readonly min: number = 1;
     readonly max: number = this.count;
