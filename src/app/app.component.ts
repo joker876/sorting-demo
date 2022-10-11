@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     gen!: Generator<undefined, void, unknown >;
 
     readonly time: number = 400;
-    readonly count: number = 100;
+    readonly count: number = 10;
     readonly min: number = 1;
     readonly max: number = this.count;
 
